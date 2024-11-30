@@ -1,0 +1,179 @@
+1. doubts
+2. questions
+3. Typecasting:
+
+    implicit & explicit (data loss)
+
+
+### Typecasting in Java
+
+**Typecasting** is the process of converting one data type into another. Java supports two types of typecasting:
+
+1. **Implicit Typecasting (Widening or Upcasting)**
+2. **Explicit Typecasting (Narrowing or Downcasting)**
+
+### 1. **Implicit Typecasting (Widening or Upcasting)**
+
+**Implicit Typecasting** happens automatically when a smaller data type is converted into a larger data type.
+This is done without any explicit request from the programmer and is safe because the larger data type can easily
+accommodate the value of the smaller data type.
+
+#### Example:
+```java
+public class ImplicitCasting {
+    public static void main(String[] args) {
+        int a = 100;    // int (32-bit)
+        long b = a;     // long (64-bit) (implicit conversion from int to long)
+
+        System.out.println("The long value: " + b);  // Output: 100
+    }
+}
+```
+
+Here, the value of `int a` is automatically cast to `long b`. Java does this implicitly because `long`
+can hold all values that `int` can.
+
+### **Types that can be implicitly cast:**
+
+- **byte** → **short**, **int**, **long**, **float**, **double**
+- **short** → **int**, **long**, **float**, **double**
+- **int** → **long**, **float**, **double**
+- **long** → **float**, **double**
+- **float** → **double**
+
+In all these cases, the smaller data type is converted to the larger data type automatically.
+
+### 2. **Explicit Typecasting (Narrowing or Downcasting)**
+
+**Explicit Typecasting** occurs when a larger data type is converted into a smaller data type.
+This type of casting **requires the programmer to specify** it explicitly because it can lead to **data loss**
+(for example, when converting from `double` to `int`).
+
+#### Example:
+```java
+public class ExplicitCasting {
+    public static void main(String[] args) {
+        double a = 100.99;    // double (64-bit)
+        int b = (int) a;      // explicit conversion from double to int (narrowing)
+
+        System.out.println("The int value: " + b);  // Output: 100
+    }
+}
+```
+
+Here, the value of `double a` is **explicitly cast** to `int b`. The fractional part is truncated (not rounded),
+resulting in the integer value `100`.
+
+#### **How to perform explicit typecasting**:
+
+To explicitly cast a larger type into a smaller type, you use the **casting operator `(type)`** followed by the value
+you want to cast.
+
+```java
+<type> variable = (<target type>) expression;
+```
+
+For example:
+```java
+int x = (int) 3.14; // explicit cast from double to int
+```
+
+### **Types that require explicit casting:**
+
+- **double** → **float**, **long**, **int**, **short**, **byte**
+- **float** → **long**, **int**, **short**, **byte**
+- **long** → **int**, **short**, **byte**
+- **int** → **short**, **byte**
+
+**Note:** When you perform explicit casting, you need to be aware of potential **data loss** or **precision loss**.
+For example, casting a `double` value to an `int` will lose the decimal part.
+
+### Example of Data Loss During Explicit Casting:
+
+```java
+public class DataLossExample {
+    public static void main(String[] args) {
+        double a = 9.99;
+        int b = (int) a;  // explicit casting (data loss)
+
+        System.out.println("The int value: " + b);  // Output: 9
+    }
+}
+```
+
+Here, the decimal part `.99` is lost when casting from `double` to `int`.
+
+### 3. **Typecasting with Objects (Reference Type Casting)**
+
+Typecasting also applies to **objects** (reference types), but the process is a bit different.
+There are two kinds of typecasting when it comes to objects:
+
+- **Upcasting**: Implicitly casting a subclass reference to a superclass reference. This is safe and happens automatically.
+- **Downcasting**: Explicitly casting a superclass reference to a subclass reference. This requires a **check** using the
+`instanceof` operator to avoid `ClassCastException`.
+
+#### Example of Upcasting:
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class UpcastingExample {
+    public static void main(String[] args) {
+        Animal animal = new Dog();  // Implicit upcasting (Dog -> Animal)
+        animal.sound();  // Output: Dog barks
+    }
+}
+```
+
+Here, `Dog` is implicitly upcast to `Animal` because every `Dog` is an `Animal`, and this happens automatically.
+
+#### Example of Downcasting:
+```java
+public class DowncastingExample {
+    public static void main(String[] args) {
+        Animal animal = new Dog();  // Upcasting
+        Dog dog = (Dog) animal;     // Explicit downcasting
+
+        dog.sound();  // Output: Dog barks
+    }
+}
+```
+
+Here, we are explicitly downcasting `Animal` to `Dog`. If `animal` is not actually an instance of `Dog`, it will throw
+a `ClassCastException`. So, **downcasting requires caution** and often needs the `instanceof` check.
+
+```java
+if (animal instanceof Dog) {
+    Dog dog = (Dog) animal;
+    dog.sound();
+} else {
+    System.out.println("Not a Dog!");
+}
+```
+
+### **Summary of Typecasting in Java**:
+
+| **Type**               | **Casting**                             | **Example**                               | **Automatic or Manual** |
+|------------------------|-----------------------------------------|-------------------------------------------|-------------------------|
+| **Integer to Integer**  | byte → short → int → long → float → double | `int x = 5; long y = x;`                   | Implicit (Widening)     |
+| **Floating-point to Integer** | float → double to byte, short, int, long | `int y = (int) 3.14;`                      | Explicit (Narrowing)    |
+| **Object Typecasting**  | Subclass to superclass and vice versa  | `Animal a = new Dog(); Dog d = (Dog) a;`   | Upcasting: Implicit, Downcasting: Explicit |
+
+### Conclusion:
+
+- **Implicit Typecasting** is automatic and happens when a smaller data type is converted to a larger data type.
+- **Explicit Typecasting** requires the programmer to manually cast a larger data type to a smaller one, potentially
+causing data loss or errors.
+- Typecasting applies not just to primitive types but also to objects, with **upcasting** and **downcasting** in the
+case of class hierarchies.
+
+Let me know if you'd like further clarification on any part of typecasting!
