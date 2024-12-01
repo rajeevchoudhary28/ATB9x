@@ -1,0 +1,15 @@
+- ternary operators
+
+**Ternary (Conditional) Operator**
+   The ternary operator is a shorthand for an `if-else` statement.
+
+   - **`? :`** (Ternary Operator): Evaluates a condition and returns one of two values.
+     - Syntax: `condition ? value_if_true : value_if_false`
+     - Example: `int result = (x > 5) ? 10 : 20;`  // If `x > 5`, `result` is 10, otherwise 20.
+
+
+ - increment(++), decrement(--)
+
+
+
+- Taking inputs
