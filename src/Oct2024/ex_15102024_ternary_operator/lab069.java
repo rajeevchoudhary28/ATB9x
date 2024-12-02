@@ -1,4 +1,4 @@
-package Oct2024.ex_15102024;
+package Oct2024.ex_15102024_ternary_operator;
 
 public class lab069 {
     public static void main(String[] args) {
