@@ -1,4 +1,4 @@
-package Oct2024.ex_16102024_conditions_loops;
+package Oct2024.ex_16102024_user_input;
 
 public class lab072_argument_console {
     public static void main(String[] args) {
