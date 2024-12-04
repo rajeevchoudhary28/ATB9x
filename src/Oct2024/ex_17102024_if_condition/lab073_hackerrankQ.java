@@ -16,20 +16,22 @@ public class lab073_hackerrankQ {
         System.out.println("Enter the score: ");
         int score = sc.nextInt();
         String Grade = "";
-        if (90 <= score & score <= 100){
+        if (90 <= score && score <= 100){
             Grade  = "A";
-        } else if (80 <= score & score <= 89) {
+        } else if (80 <= score && score <= 89) {
             Grade = "B";
-        } else if (70 <= score & score <= 79) {
+        } else if (70 <= score && score <= 79) {
             Grade = "C";
-        } else if (60 <= score & score <= 69) {
+        } else if (60 <= score && score <= 69) {
             Grade = "D";
-        } else if (0 <= score & score <= 59) {
+        } else if (0 <= score && score <= 59) {
             Grade = "F";
         }else {
             Grade = "score out of limit..";
         }
         System.out.println("Your Grade is " + Grade);
+
+        sc.close();
 
     }
 }
