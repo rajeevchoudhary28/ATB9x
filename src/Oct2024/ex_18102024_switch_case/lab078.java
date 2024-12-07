@@ -1,4 +1,4 @@
-package Oct2024.ex_18102024;
+package Oct2024.ex_18102024_switch_case;
 
 public class lab078 {
     public static void main(String[] args) {
