@@ -1,0 +1,71 @@
+🌐 HTTP vs HTTPS
+🔸 What is HTTP?
+
+HTTP (HyperText Transfer Protocol) is a protocol used to transfer data between a client (browser/ app) and a server.
+
+Works on port 80
+
+Unsecured → data is sent as plain text
+
+Anyone intercepting the traffic can read/modify it
+
+Used for general browsing (not recommended today)
+
+🔹 What is HTTPS?
+
+HTTPS (HyperText Transfer Protocol Secure) is the secure version of HTTP.
+
+Works on port 443
+
+Uses SSL/TLS encryption to protect data
+
+Ensures:
+
+🔒 Confidentiality
+
+✔ Integrity
+
+🛂 Authentication
+
+Mandatory for websites, APIs, banking, login pages
+
+🔍 Key Differences: HTTP vs HTTPS
+Feature	HTTP	HTTPS
+Security	Not secure	Encrypted & secure
+Data Transfer	Plain text	Encrypted with SSL/TLS
+Port	80	443
+URL Prefix	http://	https://
+Certificate	No certificate required	Requires SSL/TLS certificate
+SEO	Lower ranking	Better ranking (Google prefers HTTPS)
+Performance	Slightly faster (older days)	HTTP/2 & HTTP/3 make HTTPS faster now
+Use Cases	Non-sensitive browsing	Secure websites, APIs, payments
+🔐 Why HTTPS Is More Secure
+
+HTTPS uses SSL/TLS to provide:
+
+✔ 1. Encryption
+
+Even if someone captures traffic, they cannot read it.
+
+✔ 2. Authentication
+
+Confirms you're communicating with the real server.
+
+✔ 3. Data Integrity
+
+Data cannot be modified during transmission.
+
+🚀 Which One Should You Use?
+
+Always HTTPS.
+Modern browsers label HTTP sites as "Not Secure".
+
+APIs, e-commerce, banking, login systems → must use HTTPS.
+
+🎯 Summary
+
+HTTP = simple, fast, but unsecured
+
+HTTPS = secure, encrypted, trusted
+
+HTTPS protects users and helps with SEO and credibility
